@@ -14,7 +14,98 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      plan_progress: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          day_index: number
+          id: string
+          plan_id: string
+          task_index: number
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          day_index: number
+          id?: string
+          plan_id: string
+          task_index: number
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          day_index?: number
+          id?: string
+          plan_id?: string
+          task_index?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "plan_progress_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "study_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      study_plans: {
+        Row: {
+          created_at: string
+          days: number
+          hours_per_day: number | null
+          id: string
+          subjects: Json
+          timetable: Json
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          days: number
+          hours_per_day?: number | null
+          id?: string
+          subjects: Json
+          timetable: Json
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          days?: number
+          hours_per_day?: number | null
+          id?: string
+          subjects?: Json
+          timetable?: Json
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
