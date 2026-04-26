@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
-import { Sparkles, Brain, Calendar, FileDown, Flame } from "lucide-react";
+import { Swords, Brain, Calendar, FileDown, Flame } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -28,7 +28,7 @@ function Landing() {
       <nav className="flex items-center justify-between px-6 md:px-12 py-6">
         <div className="flex items-center gap-2 font-display font-bold text-xl">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent btn-glow">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
+            <Swords className="h-5 w-5 text-primary-foreground" />
           </span>
           LockIn
         </div>

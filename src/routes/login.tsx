@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/lib/auth-context";
 import { toast } from "sonner";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Swords, Loader2 } from "lucide-react";
 
 const searchSchema = z.object({
   mode: z.enum(["signin", "signup"]).optional().default("signin"),
@@ -55,7 +55,7 @@ function LoginPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl justify-center mb-8">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent btn-glow">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
+            <Swords className="h-5 w-5 text-primary-foreground" />
           </span>
           LockIn
         </Link>

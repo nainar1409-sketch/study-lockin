@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Trash2, Upload, Loader2, Sparkles } from "lucide-react";
+import { Plus, Trash2, Upload, Loader2, Swords } from "lucide-react";
 import { toast } from "sonner";
 import { extractPdfText } from "@/lib/pdf-extract";
 
@@ -175,7 +175,7 @@ function Planner() {
           </div>
 
           <Button onClick={generate} disabled={generating} className="w-full h-12 bg-gradient-to-r from-primary to-accent text-primary-foreground btn-glow text-base">
-            {generating ? <><Loader2 className="h-5 w-5 mr-2 animate-spin"/>Generating your plan...</> : <><Sparkles className="h-5 w-5 mr-2"/>Generate plan</>}
+            {generating ? <><Loader2 className="h-5 w-5 mr-2 animate-spin"/>Generating your plan...</> : <><Swords className="h-5 w-5 mr-2"/>Generate plan</>}
           </Button>
         </div>
       </main>
