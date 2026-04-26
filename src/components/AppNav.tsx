@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { Sparkles, LogOut, LayoutDashboard, PlusCircle } from "lucide-react";
+import { Swords, LogOut, LayoutDashboard, PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
 
@@ -11,7 +11,7 @@ export function AppNav() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <Link to="/dashboard" className="flex items-center gap-2 font-display font-bold">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent btn-glow">
-            <Sparkles className="h-4 w-4 text-primary-foreground" />
+            <Swords className="h-4 w-4 text-primary-foreground" />
           </span>
           LockIn
         </Link>
