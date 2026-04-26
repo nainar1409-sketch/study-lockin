@@ -51,7 +51,7 @@ function ResultPage() {
         .eq("id", id)
         .single();
       if (error) { toast.error(error.message); setBusy(false); return; }
-      setPlan(data as { title: string; timetable: Timetable });
+      setPlan(data as unknown as { title: string; timetable: Timetable });
 
       const { data: prog } = await supabase
         .from("plan_progress")
@@ -95,17 +95,15 @@ function ResultPage() {
     setExporting(true);
     try {
       const html2pdf = (await import("html2pdf.js")).default;
-      await html2pdf()
-        .from(printRef.current)
-        .set({
-          margin: [10, 10, 10, 10],
-          filename: `${plan.title.replace(/[^a-z0-9]+/gi, "_")}_LockIn.pdf`,
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, backgroundColor: "#1a1a2e" },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-          pagebreak: { mode: ["avoid-all", "css", "legacy"] },
-        })
-        .save();
+      const opts = {
+        margin: [10, 10, 10, 10],
+        filename: `${plan.title.replace(/[^a-z0-9]+/gi, "_")}_LockIn.pdf`,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, backgroundColor: "#1a1a2e" },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: ["avoid-all", "css", "legacy"] },
+      };
+      await html2pdf().from(printRef.current).set(opts as never).save();
     } catch (e) {
       console.error(e);
       toast.error("PDF export failed");
